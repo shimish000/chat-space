@@ -1,14 +1,11 @@
-# README
-## groups_usersテーブル
-
+# chat-space DB設計
+## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
-|group_user_id|integer|null: false, foreign_key: true|
-|post_id|integer|null: false, foreign_key: true|
+|email|string|null: false|
+|password|string|null: false|
+|username|string|null: false|
 ### Association
+- has_many :posts
+- has_many :groups
 
-- belongs_to :group
-- belongs_to :user
-- belongs_to :user
