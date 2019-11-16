@@ -18,7 +18,7 @@
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- has_many :comments
+- belongs_to :group
 
 ## groupsテーブル
 |Column|Type|Options|
@@ -28,6 +28,7 @@
 ### Association
 - has_many :users, through: :groups_users
 - has_many :groups_users
+- has many :posts, dependent:destroy
 
 ## groups_usersテーブル
 |Column|Type|Options|
