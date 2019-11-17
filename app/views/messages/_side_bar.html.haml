@@ -1,0 +1,15 @@
+.side-bar
+  .side-header
+    .side-header__box
+      .side-header__box__name
+        seo      
+      .side_header__box__icon
+        =link_to "#", class: "side-header__btn side-header__btn--edit" do
+          = icon('fas', 'edit',  class: "side-header__btn--icon")
+        =link_to "#", class: "side-header__btn side-header__btn--cog" do
+          = icon('fas', 'cog',  class: "side-header__btn--icon")
+  .side-contents
+    .side-contents__item
+      sample
+    .side-contents__message
+      good bye world!
