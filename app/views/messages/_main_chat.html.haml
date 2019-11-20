@@ -20,6 +20,7 @@
     %form{class: "main-form__box"}
       .input-box
         %input{:class => "input-box__text", :name => "message[content]", :placeholder => "type a message", :type => "", :value => ""}
-        %label{class: "input-box__image",type: "file"}
+        %label{class: "input-box__image",for: "message_image"}
           = icon('fas', 'image')
+          %input{type: "file",class:"input-box__image__file", id:"message_image"}
       %input{class: "submit-btn", type: "submit",value: "send"} 
