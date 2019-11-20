@@ -17,3 +17,9 @@
       .main-chat__box__sentence
         This is s first message!
   .main-form
+    %form{class: "main-form__box"}
+      .input-box
+        %input{:class => "input-box__text", :name => "message[content]", :placeholder => "type a message", :type => "", :value => ""}
+        %label{class: "input-box__image",type: "file"}
+          = icon('fas', 'image')
+      %input{class: "submit-btn", type: "submit",value: "send"} 
