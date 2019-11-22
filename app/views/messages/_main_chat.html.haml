@@ -1,0 +1,26 @@
+.main-side 
+  .main-header
+    .main-header__left
+      .main-header__left__group
+        sample
+      .main-header__left__member
+        menber
+    .main-header__right-btn
+      edit
+  .main-chat
+    .main-chat__box
+      .main-chat__box__info
+        .main-chat__box__info__name
+          shota
+        .main-chat__box__info__date
+          2019/11/18/20:44:39
+      .main-chat__box__sentence
+        This is s first message!
+  .main-form
+    %form{class: "main-form__box"}
+      .input-box
+        %input{class:"input-box__text", name:"message[content]", placeholder: "type a message", type: "", value: ""}
+        %label{class: "input-box__image",for: "message_image"}
+          = icon('fas', 'image')
+          %input{type: "file",class:"input-box__image__file", id:"message_image"}
+      %input{class: "submit-btn", type: "submit",value: "send"} 
