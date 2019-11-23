@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  protect_from_forgery except: :update
   def index
   end
 

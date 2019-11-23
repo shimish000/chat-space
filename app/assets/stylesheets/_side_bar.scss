@@ -22,15 +22,22 @@
     color:white;
   }
 }
-.side-contents{
+.groups{
     background-color: #2f3e51;
     height: calc(100vh - 100px);
     padding:20px 20px 0;
-  &__item{
+}
+ 
+
+.group{
+  margin-bottom: 40px;
+  &__name{
     font-size: 15px;
     margin-bottom: 5px;
+    color:white;
   }
   &__message{
     font-size: 11px;
+    color:white;
   }
 }

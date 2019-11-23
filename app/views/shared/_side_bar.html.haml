@@ -4,12 +4,17 @@
       .side-header__box__name
         =current_user.name    
       .side_header__box__icon
-        =link_to "#", class: "side-header__btn side-header__btn--edit" do
+        =link_to new_group_path, class: "side-header__btn side-header__btn--edit" do
           = icon('fas', 'edit',  class: "side-header__btn--icon")
         =link_to edit_user_path(current_user), class: "side-header__btn side-header__btn--cog" do
           = icon('fas', 'cog',  class: "side-header__btn--icon")
-  .side-contents
-    .side-contents__item
-      sample
-    .side-contents__message
-      good bye world!
+  .groups
+    - current_user.groups.each do |group|
+      .group
+        = link_to '#' do
+          .group__name
+            = group.name
+          .group__message
+            メッセージはまだありません。
+
+  
