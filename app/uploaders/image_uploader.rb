@@ -1,9 +1,7 @@
 class ImageUploader < CarrierWave::Uploader::Base
-  include CarrierWave::RMagick
+  include CarrierWave::MiniMagick
 
-  # storage :file
-
-  process resize_to_fit: [800, 800]
+   process resize_to_fit: [800, 800]
 
   # 保存するディレクトリ名
   # def store_dir
@@ -24,4 +22,4 @@ class ImageUploader < CarrierWave::Uploader::Base
 #   def filename
 #     "#{Time.zone.now.strftime('%Y%m%d%H%M%S')}.jpg" if original_filename.present?
 #   end
-# end
+end

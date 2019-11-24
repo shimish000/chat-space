@@ -44,7 +44,7 @@
   &__box{
     &__info{
       display: flex;
-      margin-bottom:10px;
+      margin-bottom:40px;
     
       &__name{
         font-weight: bold;
@@ -67,34 +67,41 @@
 
 }
 .main-form{
-  position:fixed;
-  bottom:0;
+  height:90px;
+  position: fixed;
+  bottom: 0;
   background-color: #ddd;
   padding: 20px 40px;
   width: calc(100% - 300px);
   &__box  {
     display:flex;
   }
+  &__message{
+    height:50px;
+    width: 100%;
+    padding: 0 40px 0 10px;
+    color:#434a54;
+    font-size: 16px;
+    border-style: none;
+  }
   .input-box{
     position: relative;
     width: 100%;
-    &__text{
-      height:50px;
-      width: 100%;
-      padding: 0 40px 0 10px;
-      color:#434a54;
-      font-size: 16px;
-      border-style: none;
-      display: block;
-    }
     &__image{
       position: absolute;
       top: 10px;
       right: 10px;
+      font-size:1.3rem;
       &__file{
         display: none;
       }
     }
+  }
+  .new_message{
+    display: flex;
+  }
+  .fa{
+    display:inline-block;
   }
 
   .submit-btn{

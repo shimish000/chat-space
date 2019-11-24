@@ -1,0 +1,28 @@
+.main-side 
+  .main-header
+    .main-header__left
+      .main-header__left__group
+        sample
+      .main-header__left__member
+        menber
+    .main-header__right-btn
+      edit
+  .main-chat
+    = render @messages
+  -# .main-form
+  -#   %form{class: "main-form__box"}
+  -#     .input-box
+  -#       %input{class:"input-box__text", name:"message[content]", placeholder: "type a message", type: "", value: ""}
+  -#       %label{class: "input-box__image",for: "message_image"}
+  -#         = icon('fas', 'image')
+  -#         %input{type: "file",class:"input-box__image__file", id:"message_image"}
+  -#     %input{class: "submit-btn", type: "submit",value: "send"} 
+
+  .main-form
+    = form_for [@group, @message] do |f|
+      .input-box
+        = f.text_field :content, class: 'main-form__message', placeholder: 'type a message'
+        = f.label :image, class: 'input-box__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'input-box__image__file'
+      = f.submit 'Send', class: 'submit-btn'
