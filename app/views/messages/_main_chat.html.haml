@@ -10,7 +10,7 @@
             -@group.users.each do |user|
               =user.name
     .main-header__right-btn
-      -# =link_to 'edit', 'edit', class: 'main-header__right-btn__edit'
+      =link_to 'edit', 'edit', class: 'main-header__right-btn__edit'
   .main-chat
     = render @messages
   
