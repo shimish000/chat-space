@@ -35,6 +35,10 @@
     justify-content: flex-end;
     border:solid 1px #38aef0;
     color:#38aef0;
+    &__edit{
+      color:#38aef0;
+      text-decoration: none;
+    }
   }
 }
 .main-chat{
