@@ -19,23 +19,7 @@ $(function(){
                       ${image}
                     </div>
                   </div>`
-    // }else {
-    //   var html = `<div class="main-chat__box">
-    //                 <div class="main-chat__box__info">
-    //                   <div class="main-chat__box__info__name">
-    //                     ${message.user_name}
-    //                   </div>
-    //                   <div class="main-chat__box__info__date">
-    //                     ${message.created_at}
-    //                   </div>
-    //                 </div>
-    //                 <div class="main-chat__box__sentence">
-    //                   <p class="lower-message__content">
-    //                     ${message.text}
-    //                   </p>
-    //                 </div>
-    //               </div>`
-    // }
+    
     return html;
   }
 
@@ -54,12 +38,14 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.main-chat').append(html)
-      $('#message_content').val("")
-      $('.submit-btn').removeAttr("disabled");
+      $('.main-chat').animate({scrollTop: $('.main-chat')[0].scrollHeight});
+      $('form')[0].reset();
     })
     .fail(function(){
       alert('error')
     })
-  
+    .always(function(){
+      $(".submit-btn").removeAttr("disabled");
+    });
   })
 })
