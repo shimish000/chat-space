@@ -49,6 +49,7 @@ $(function(){
     });
   })
   var reloadMessages = function(){
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
     var last_message_id = $('.main-chat__box:last').data("message-id");
     $.ajax({
       url: "api/messages",
@@ -62,10 +63,12 @@ $(function(){
           insertHTML += buildHTML(message)
         });
         $('.main-chat__box').append(insertHTML)
+        $('.main-chat__box').animate({scrollTop: $('.main-chat__box')[0].scrollHeight}, 'fast')
       })
       .fail(function(){
         console.log('error');
       });
+    }
   }
   setInterval(reloadMessages, 7000);
 });
