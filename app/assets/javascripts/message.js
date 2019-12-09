@@ -61,9 +61,11 @@ $(function(){
         var insertHTML = '';
         $.each(messages,function(i,message){
           insertHTML += buildHTML(message)
+          $('.main-chat').animate({scrollTop: $('.main-chat')[0].scrollHeight}, 'fast')
         });
-        $('.main-chat__box').append(insertHTML)
-        $('.main-chat__box').animate({scrollTop: $('.main-chat__box')[0].scrollHeight}, 'fast')
+        
+        $('.main-chat').append(insertHTML)
+        
       })
       .fail(function(){
         console.log('error');
