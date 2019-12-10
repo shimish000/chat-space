@@ -29,21 +29,22 @@ $(function(){
 
     $(".js-add-user").append(html);      
   }
-  function addMenber(userId){
+  function addMember(userId){
     var html = `
-                <input value = "${userId}" name = "group[user_ids][]" type = "hidden" id = "group_user_ids_${userId}" />;`
+                <input value = "${userId}" name = "group[user_ids][]" type = "hidden" id = "group_user_ids_${userId}" />`
 
-    (`#${userId}`).append(html);
+    $(`#${userId}`).append(html);
   }
   
   
   $("#user-search-field").on("keyup", function(){
     var input = $("#user-search-field").val();
+    var userIds = [];
     $.ajax({
       type: 'GET',
       url: '/users',
       dataType: 'json',
-      data: {keyword: input},
+      data: {keyword: input, user_id: userIds},
     })
       .done(function(users){
         $("#user-search-result").empty();
@@ -67,19 +68,16 @@ $(function(){
 
         $(this).parent().remove()
         
-
-        addDeleteUser(userName, userId);
-        addMenber(userId);
-
-
-      });
-
-      $(document).on('click',".chat-group-user__btn--remove",function(){
- 
-        $(this).parent().remove()
         
-      });
+        addDeleteUser(userName, userId);
+        addMember(userId);
 
+      });
+  });
+  $(document).on('click',".chat-group-user__btn--remove",function(){
+ 
+    $(this).parent().remove()
+    
   });
 });
 
