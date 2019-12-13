@@ -86,7 +86,6 @@
     width: 100%;
     padding: 0 40px 0 10px;
     color:#434a54;
-    font-size: 16px;
     border-style: none;
   }
   .input-box{
@@ -96,7 +95,8 @@
       position: absolute;
       top: 10px;
       right: 10px;
-      font-size:1.3rem;
+      font-size: 21px;
+      cursor:pointer;
       &__file{
         display: none;
       }
@@ -105,8 +105,8 @@
   .new_message{
     display: flex;
   }
-  .fa{
-    display:inline-block;
+  .far{
+    font-size: inherit;
   }
 
   .submit-btn{
