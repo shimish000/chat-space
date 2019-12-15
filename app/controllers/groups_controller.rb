@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:edit, :update]
-  
+  # before_action :chat_member, only: [:new, :edit]
   
   def index
   end
@@ -8,6 +8,7 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @group.users << current_user
+    @members = @group.users
   end
 
   def create
@@ -28,6 +29,8 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    @members = @group.users
+    binding.pry
   end
 
   private
@@ -38,4 +41,8 @@ class GroupsController < ApplicationController
   def set_group
     @group = Group.find(params[:id])
   end
+
+  # def chat_member
+  #   @members = @group.users
+  # end
 end

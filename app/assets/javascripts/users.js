@@ -39,12 +39,12 @@ $(function(){
   
   $("#user-search-field").on("keyup", function(){
     var input = $("#user-search-field").val();
-    var userIds = [];
+    var group_id = $(".chat__group_id").val();
     $.ajax({
       type: 'GET',
       url: '/users',
       dataType: 'json',
-      data: {keyword: input, user_id: userIds},
+      data: {keyword: input, user_id: userIds,group_id: group_id},
     })
       .done(function(users){
         $("#user-search-result").empty();
