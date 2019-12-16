@@ -23,28 +23,33 @@ $(function(){
   function addDeleteUser(name,id){
     var html = `
                 <div class="chat-group-user clearfix" id="${id}">
+                  <input name="group[user_ids][]" type="hidden" value=${id} class="member_id">
                   <p class="chat-group-user__name">${name}</p>
                   <div class="user-search-remove chat-group-user__btn chat-group-user__btn--remove" data-user-id="${id}" data-user-name="${name}">削除</div>
                 </div> `;
 
     $(".js-add-user").append(html);      
   }
-  function addMember(userId){
-    var html = `
-                <input value = "${userId}" name = "group[user_ids][]" type = "hidden" id = "group_user_ids_${userId}" />`
+  // function addMember(userId){
+  //   var html = `
+  //               <input value = "${userId}" name = "group[user_ids][]" type = "hidden" id = "group_user_ids_${userId}" />`
 
-    $(`#${userId}`).append(html);
-  }
+  //   $(`#${userId}`).append(html);
+  // }
   
   
   $("#user-search-field").on("keyup", function(){
-    var input = $("#user-search-field").val();
-    var group_id = $(".chat__group_id").val();
+    var input = $(this).val();
+    var ids = []
+    $('.member_id').each(function(i, memberId){
+      ids.push($(memberId).val())
+    })
+    console.log(ids)
     $.ajax({
       type: 'GET',
       url: '/users',
       dataType: 'json',
-      data: {keyword: input, user_id: userIds,group_id: group_id},
+      data: {keyword: input,ids: ids},
     })
       .done(function(users){
         $("#user-search-result").empty();

@@ -23,21 +23,23 @@
     .chat-group-form__field--left
       %label.chat-group-form__label{for: "chat_group_チャットメンバー"} チャットメンバー
     .chat-group-form__field--right
-      
-      -members.each do |member|
-      #chat-group-users.js-add-user
-        .chat-group-user.clearfix.js-chat-member
-          %input{name: "group[user_ids][]", type: "hidden", value: member.id}
-          %p.chat-group-user__name= member.name
-        
+
+      .chat-group-users.js-add-user
         - group.users.each do |user|
-          - if current_user.name != user.name
-            .chat-group-user.clearfix.js-chat-member
-              %input{name: "group[user_ids][]",type: "hidden", value: user.id}
+          .chat-group-user.clearfix.js-chat-member
+            - if current_user.name == user.name 
+              %input{name: "group[user_ids][]", type: "hidden", value: user.id, class: "member_id"}
+              %p.chat-group-user__name
+                = current_user.name
+
+            - else current_user.name != user.name
+              %input{name: "group[user_ids][]",type: "hidden", value: user.id, class: "member_id"}
               %p.chat-group-user__name
                 =user.name
               %a.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn
                 削除      
+
+
 
   .chat-group-form__field.clearfix
     .chat-group-form__field--left

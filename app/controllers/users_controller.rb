@@ -1,14 +1,10 @@
 class UsersController < ApplicationController
   protect_from_forgery except: :update
-  def index
-    if params[:group_id].present?
-      @group = Group.find(params[:group_id])
-      @ids = @group.users.ids
 
-      return nil if params[:keyword] == ""
-      @users = User.where(['name LIKE ?',"%#{params[:keyword]}%"]).where.not(id: current_user.id, @ids).limit(10)
-    end
-    respond_to do |format|
+  def index
+    return nil if params[:keyword] == ""
+    @users = User.where(['name LIKE ?',"%#{params[:keyword]}%"]).where.not(id: params[:ids]).limit(10)
+      respond_to do |format|
       format.html
       format.json
     end

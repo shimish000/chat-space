@@ -8,7 +8,6 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @group.users << current_user
-    @members = @group.users
   end
 
   def create
@@ -29,8 +28,6 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @members = @group.users
-    binding.pry
   end
 
   private
