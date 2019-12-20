@@ -44,7 +44,7 @@ $(function(){
     $('.member_id').each(function(i, memberId){
       ids.push($(memberId).val())
     })
-    console.log(ids)
+    // console.log(ids)
     $.ajax({
       type: 'GET',
       url: '/users',
@@ -75,7 +75,7 @@ $(function(){
         
         
         addDeleteUser(userName, userId);
-        addMember(userId);
+        // addMember(userId);
 
       });
   });
